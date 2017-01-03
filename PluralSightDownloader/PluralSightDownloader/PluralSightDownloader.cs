@@ -55,7 +55,7 @@ namespace PluralsightDownloader
 
         public VideoDownloader()
             {
-            this.rootPath = @"D:\PluralSight";
+            this.rootPath = @"D:\PluralSight2\";
             ExpectedChapterIndex = 6;
 
             }
@@ -75,15 +75,7 @@ namespace PluralsightDownloader
                 if ( oSession.uriContains (".mp4") )
                     {
                     var temp = oSession.url.Split ('/');
-                    var chapterIndex = -1;
-                    if ( temp.Length > ExpectedChapterIndex )
-                        {
-                        chapterIndex = ExpectedChapterIndex;
-                        }
-                    else
-                        {
-                        //sometimes there comes a url with different order but did not find that while testing. will update for that here or apply a pattern
-                        }
+                    var chapterIndex = temp.Length - 3;
                     var author = rootPath + "\\" + temp[chapterIndex - 2];
                     //this.createFolder(author);
                     string chapter;
